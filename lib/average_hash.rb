@@ -1,9 +1,7 @@
 # coding: utf-8
 
-require 'RMagick'
+module AverageHash
+end
 
 require 'average_hash/image'
 require 'average_hash/version'
-
-module AverageHash
-end
