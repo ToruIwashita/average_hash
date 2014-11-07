@@ -19,7 +19,7 @@ module AverageHash
       (fingerprint ^ other.fingerprint).to_s(2).count('1')
     end
 
-    def duplicate?(other, opts={})
+    def duplicate?(other, opts = {})
       threshold = opts[:threshold] || DEFAULT_DUPE_THRESHOLD
       distance_from(other) <= threshold
     end

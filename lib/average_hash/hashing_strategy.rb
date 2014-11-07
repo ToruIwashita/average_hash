@@ -16,7 +16,7 @@ module AverageHash
     NTSC_COEFFICIENT_OF_B = 0.11
 
     def initialize(file_path)
-      @image = Magick::Image.read(file_path).first.resize(RESIZNING_SIZE,RESIZNING_SIZE)
+      @image = Magick::Image.read(file_path).first.resize(RESIZNING_SIZE, RESIZNING_SIZE)
     end
 
     def generate_hash
@@ -39,16 +39,16 @@ module AverageHash
 
     def average_pixel
       gray_scaled_pixels = (image_pixel_count.times).map { |i| gray_scaled_pixel(i) }
-      gray_scaled_pixels.reduce(0,:+) / image_pixel_count
+      gray_scaled_pixels.reduce(0, :+) / image_pixel_count
     end
 
     def gray_scaled_pixel(num)
-      px = pixel_at((num % RESIZNING_SIZE),(num / RESIZNING_SIZE))
+      px = pixel_at((num % RESIZNING_SIZE), (num / RESIZNING_SIZE))
       px[INDEX_OF_R] * NTSC_COEFFICIENT_OF_R + px[INDEX_OF_G] * NTSC_COEFFICIENT_OF_G + px[INDEX_OF_B] * NTSC_COEFFICIENT_OF_B
     end
 
-    def pixel_at(offset_of_x,offset_of_y)
-      @image.export_pixels(offset_of_x,offset_of_y,PIXEL_ACQUISITION_SIZE,PIXEL_ACQUISITION_SIZE)
+    def pixel_at(offset_of_x, offset_of_y)
+      @image.export_pixels(offset_of_x, offset_of_y, PIXEL_ACQUISITION_SIZE, PIXEL_ACQUISITION_SIZE)
     end
   end
 end
