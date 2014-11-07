@@ -51,7 +51,7 @@ describe AverageHash::HashingStrategy do
   context 'generate_hash with argument "smaple_1.jpg"' do
     it do
       hashing_strategy = AverageHash::HashingStrategy.new(fixture_file_path('sample_1.jpg'))
-      expect(hashing_strategy.generate_hash).to eq "1011011010011100101111011000100100001011000010111000111110001100"
+      expect(hashing_strategy.generate_hash).to eq '1011011010011100101111011000100100001011000010111000111110001100'
     end
   end
 end
