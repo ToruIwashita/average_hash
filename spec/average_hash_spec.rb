@@ -1,44 +1,49 @@
 require 'spec_helper'
 
 describe AverageHash::Image do
-  it '"sample_1.jpg" fingerprint' do
-    image = AverageHash::Image.new(fixture_file_path('sample_1.jpg'))
-    expect(image.fingerprint).to eq 13158600607563222924
+  context 'sample_1 test' do
+    it '"sample_1.jpg" fingerprint' do
+      image_1 = AverageHash::Image.new(fixture_file_path('sample_1.jpg'))
+      expect(image_1.fingerprint).to eq 13158600607563222924
+    end
   end
 
-  it '"sample_2.jpg" fingerprint' do
-    image = AverageHash::Image.new(fixture_file_path('sample_2.jpg'))
-    expect(image.fingerprint).to eq 7870530257777914161
+  context 'sample_2 test' do
+    it '"sample_2.jpg" fingerprint' do
+      image_2 = AverageHash::Image.new(fixture_file_path('sample_2.jpg'))
+      expect(image_2.fingerprint).to eq 7870530257777914161
+    end
   end
 
-  it '"sample_1" distance_from from "sample_2"' do
-    image_1 =  AverageHash::Image.new(fixture_file_path('sample_1.jpg'))
-    image_2 =  AverageHash::Image.new(fixture_file_path('sample_2.jpg'))
-    expect(image_1.distance_from(image_2)).to eq 36
+  context 'two images test' do
+    before do
+      @image_1 = AverageHash::Image.new(fixture_file_path('sample_1.jpg'))
+      @image_2 = AverageHash::Image.new(fixture_file_path('sample_2.jpg'))
+    end
+
+    it '"sample_1" distance_from from "sample_2"' do
+      expect(@image_1.distance_from(@image_2)).to eq 36
+    end
+
+    it '"sample_1" duplicate? "sample_2"' do
+      expect(@image_1.duplicate?(@image_2)).to eq false
+    end
+
+    it '"sample_1" duplicate? "sample_2" with threshold 35' do
+      expect(@image_1.duplicate?(@image_2, threshold: 35)).to eq false
+    end
+
+    it '"sample_1" duplicate? "sample_2" with threshold 36' do
+      expect(@image_1.duplicate?(@image_2, threshold: 36)).to eq true
+    end
   end
 
-  it '"sample_1" duplicate? "sample_2"' do
-    image_1 = AverageHash::Image.new(fixture_file_path('sample_1.jpg'))
-    image_2 = AverageHash::Image.new(fixture_file_path('sample_2.jpg'))
-    expect(image_1.duplicate?(image_2)).to eq false
-  end
-
-  it '"sample_1" duplicate? "sample_2" with threshold 35' do
-    image_1 = AverageHash::Image.new(fixture_file_path('sample_1.jpg'))
-    image_2 = AverageHash::Image.new(fixture_file_path('sample_2.jpg'))
-    expect(image_1.duplicate?(image_2, threshold: 35)).to eq false
-  end
-
-  it '"sample_1" duplicate? "sample_2" with threshold 36' do
-    image_1 = AverageHash::Image.new(fixture_file_path('sample_1.jpg'))
-    image_2 = AverageHash::Image.new(fixture_file_path('sample_2.jpg'))
-    expect(image_1.duplicate?(image_2, threshold: 36)).to eq true
-  end
-
-  it '"sample_1" duplicate? "sample_1"' do
-    image_1 = AverageHash::Image.new(fixture_file_path('sample_1.jpg'))
-    image_2 = AverageHash::Image.new(fixture_file_path('sample_1.jpg'))
-    expect(image_1.duplicate?(image_2)).to eq true
+  context 'duplicate image test' do
+    it '"sample_1" duplicate? "sample_1"' do
+      image_1_1 = AverageHash::Image.new(fixture_file_path('sample_1.jpg'))
+      image_1_2 = AverageHash::Image.new(fixture_file_path('sample_1.jpg'))
+      expect(image_1_1.duplicate?(image_1_2)).to eq true
+    end
   end
 end
 
