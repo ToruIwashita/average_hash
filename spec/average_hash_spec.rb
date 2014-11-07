@@ -1,27 +1,27 @@
 require 'spec_helper'
 
 describe AverageHash::Image do
-  context 'sample_1 test' do
-    it '"sample_1.jpg" fingerprint' do
+  context 'use sample_1.jpg' do
+    it 'fingerprint' do
       image_1 = AverageHash::Image.new(fixture_file_path('sample_1.jpg'))
       expect(image_1.fingerprint).to eq 13158600607563222924
     end
   end
 
-  context 'sample_2 test' do
-    it '"sample_2.jpg" fingerprint' do
+  context 'use sample_2.jpg' do
+    it 'fingerprint' do
       image_2 = AverageHash::Image.new(fixture_file_path('sample_2.jpg'))
       expect(image_2.fingerprint).to eq 7870530257777914161
     end
   end
 
-  context 'two images test' do
+  context 'use two jpg images' do
     before do
       @image_1 = AverageHash::Image.new(fixture_file_path('sample_1.jpg'))
       @image_2 = AverageHash::Image.new(fixture_file_path('sample_2.jpg'))
     end
 
-    it '"sample_1" distance_from from "sample_2"' do
+    it '"sample_1" distance_from "sample_2"' do
       expect(@image_1.distance_from(@image_2)).to eq 36
     end
 
@@ -38,7 +38,7 @@ describe AverageHash::Image do
     end
   end
 
-  context 'duplicate image test' do
+  context 'use duplicate jpg image' do
     it '"sample_1" duplicate? "sample_1"' do
       image_1_1 = AverageHash::Image.new(fixture_file_path('sample_1.jpg'))
       image_1_2 = AverageHash::Image.new(fixture_file_path('sample_1.jpg'))
