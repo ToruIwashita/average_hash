@@ -26,15 +26,15 @@ describe AverageHash::Image do
     end
 
     it '"sample_1" duplicate? "sample_2"' do
-      expect(@image_1.duplicate?(@image_2)).to eq false
+      expect(@image_1.duplicate?(@image_2)).to be_falsey
     end
 
     it '"sample_1" duplicate? "sample_2" with threshold 35' do
-      expect(@image_1.duplicate?(@image_2, threshold: 35)).to eq false
+      expect(@image_1.duplicate?(@image_2, threshold: 35)).to be_falsey
     end
 
     it '"sample_1" duplicate? "sample_2" with threshold 36' do
-      expect(@image_1.duplicate?(@image_2, threshold: 36)).to eq true
+      expect(@image_1.duplicate?(@image_2, threshold: 36)).to be_truthy
     end
   end
 
@@ -42,7 +42,7 @@ describe AverageHash::Image do
     it '"sample_1" duplicate? "sample_1"' do
       image_1_1 = AverageHash::Image.new(fixture_file_path('sample_1.jpg'))
       image_1_2 = AverageHash::Image.new(fixture_file_path('sample_1.jpg'))
-      expect(image_1_1.duplicate?(image_1_2)).to eq true
+      expect(image_1_1.duplicate?(image_1_2)).to be_truthy
     end
   end
 end
