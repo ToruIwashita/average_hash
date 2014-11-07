@@ -18,7 +18,7 @@ Or install it yourself as:
 
 ## Usage
 
-### Determine the similarity of image
+Determine the similarity of image
 
     require 'average_hash'
     image_1 = AverageHash::Image.new(file_path_1)
@@ -31,7 +31,7 @@ If you want to set the threshold of hamming distance, you can do the following. 
     image_1.duplicate?(image_2, threshold: 3)
     => false
 
-### Get the hamming distance between two images
+Get the hamming distance between two images
 
     image_1.distance_from(image_2)
     => 4
