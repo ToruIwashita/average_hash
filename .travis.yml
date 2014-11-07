@@ -1,0 +1,8 @@
+language: ruby
+rvm:
+  - 1.9.3
+
+notifications:
+  emails:
+    - toru.iwashita@gmail.com
+  on_failure: always
