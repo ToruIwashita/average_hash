@@ -42,8 +42,8 @@ module AverageHash
       gray_scaled_pixels.reduce(0, :+) / image_pixel_count
     end
 
-    def gray_scaled_pixel(num)
-      px = pixel_at((num % RESIZNING_SIZE), (num / RESIZNING_SIZE))
+    def gray_scaled_pixel(index)
+      px = pixel_at((index % RESIZNING_SIZE), (index / RESIZNING_SIZE))
       px[INDEX_OF_R] * NTSC_COEFFICIENT_OF_R + px[INDEX_OF_G] * NTSC_COEFFICIENT_OF_G + px[INDEX_OF_B] * NTSC_COEFFICIENT_OF_B
     end
 
