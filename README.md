@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ToruIwashita/average_hash.svg?branch=master)](https://travis-ci.org/ToruIwashita/average_hash)
+
 # AverageHash
 
 Simple similarity calculation method of image. It is inspired by [Phashion](https://github.com/westonplatter/phashion).
