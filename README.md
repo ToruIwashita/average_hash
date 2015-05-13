@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/ToruIwashita/average_hash.svg?branch=master)](https://travis-ci.org/ToruIwashita/average_hash)
+[![Coverage Status](https://coveralls.io/repos/ToruIwashita/average_hash/badge.svg?branch=master)](https://coveralls.io/r/ToruIwashita/average_hash?branch=master)
 [![Code Climate](https://codeclimate.com/github/ToruIwashita/average_hash/badges/gpa.svg)](https://codeclimate.com/github/ToruIwashita/average_hash)
 
 # AverageHash
